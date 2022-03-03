@@ -1,0 +1,95 @@
+.ListProduct{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin:40px;
+}
+.CardProduct{
+    margin-top: 20px;
+    text-align: center;
+}
+/* Info Product */
+.detail{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 50px;
+  font-size: 150%;
+}
+.detail-image{
+  /* max-width: 400px; */
+  /* width: 100px; */
+  /* margin: 20px; */
+  /* height:50px; */
+  /* object-fit: cover; */
+  /* display: block; */
+  border: solid 0.5px grey;
+}
+.box-detail{
+  /* max-width: 100%; */
+  /* width: 100%; */
+  margin: 20px;
+}
+
+.box-detail h4{
+text-transform: uppercase;
+/* color: darkblue; */
+letter-spacing: 2px;
+font-weight: 2rem;
+border-bottom: solid 1px gray;
+}
+.box-detail price{
+  font:bold;
+}
+.box-detail p{
+  line-height: 1.5;
+  margin: 10px 0;
+  opacity: 0.8;
+}
+.box-detail .cart:hover{
+  border-radius: 20px;
+  width: 130px;
+  height: 130px;
+}
+.panier{
+  margin-left: 130px;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  border-bottom: none;
+  text-decoration:none;
+  display: inline-block;
+}
+.panier:hover{
+  color: white;
+  border-bottom: none;
+  background-color: #333;
+  padding: 4px 15px;
+  text-decoration:none;
+  display: inline-block;
+  border-radius: 20px;
+}
+.panier:active{
+  text-decoration:none;
+}
+.card-text{
+  font-size: 14px;
+}
+.products{
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+.eyes{
+  animation: rotation 10s infinite linear; 
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

@@ -13,8 +13,8 @@ const userSchema=new Schema({
     
     userRole: {
       type: String,
-      default: 'User',
-      roles: ['User', 'Admin'],
+      default: 'user',
+      roles: ['user', 'admin'],
     },
   });
   module.exports=User=mongoose.model("User",userSchema)

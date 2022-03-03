@@ -47,7 +47,8 @@ exports.login=async(req,res)=>{
         }
         const isMatch=await bc.compare(password,theUser.password)
         if(!isMatch)
-        res.status(402).json({msg:"invalid email or password"})
+        res.status(403).json({msg:"invalid email or password"})
+        /// if login success, 
         const payload={
             id:theUser._id,
             fullName:theUser.fullName,
@@ -69,6 +70,7 @@ exports.login=async(req,res)=>{
             role:theUser.role   
             }
         })
+      
     } catch (error) {
         res.status(500).json({msg:error.message})
     }

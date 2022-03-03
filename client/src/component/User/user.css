@@ -1,0 +1,43 @@
+.imagSinup{
+    opacity: 0.5;
+    height: 620px;
+    width: 850px;
+}
+.SignUp{
+    display: flex;
+    
+}
+.signup_formulaire{
+   
+    padding-right: 10px;
+    width: 37%;
+  
+  }
+  .signup_formulaire h3{
+      margin: 30px 60px 0px 30px;
+      text-align: center;
+  }
+  .form_SignUp{
+    margin: 30px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 30px;
+  }
+  input {
+    margin: .6rem;
+}
+  .input-signup{
+    width: 80%;
+    height: 35px;
+    margin: 0 auto;
+    border: auto;
+    border-radius: 10px;
+  }
+  .signup_formulaire Button{
+      margin-left: 80px;
+      margin-top: 20px;
+      width: 280px;
+  }
+  .spinner{
+    margin: 250px;
+  }
+  
