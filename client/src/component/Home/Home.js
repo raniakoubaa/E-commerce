@@ -1,10 +1,12 @@
 import React from 'react'
 import { Carousel } from 'react-bootstrap'
+import Header from '../Header/Header'
 import ListProduct from '../Product/ListProduct'
 
 const Home = () => {
   return (
     <div>
+      <Header/>
        <Carousel>
   <Carousel.Item>
     <img

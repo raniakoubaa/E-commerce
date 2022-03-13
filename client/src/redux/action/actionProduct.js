@@ -1,5 +1,7 @@
 import axios from 'axios'
-import { ADD_PRODUCT, ADD_PRODUCT_FAIL, ADD_PRODUCT_SUCCESS, DELETE_PRODUCT, DELETE_PRODUCT_FAIL, DELETE_PRODUCT_SUCCESS, EDIT_PRODUCT, EDIT_PRODUCT_FAIL, EDIT_PRODUCT_SUCCESS, GET_ONE_PRODUCT, GET_ONE_PRODUCT_FAIL, GET_ONE_PRODUCT_SUCCESS, GET_PRODUCT, GET_PRODUCT_FAIL, GET_PRODUCT_SUCCESS } from '../actionType'
+import { ADD_PRODUCT, ADD_PRODUCT_FAIL, ADD_PRODUCT_SUCCESS, DELETE_PRODUCT, DELETE_PRODUCT_FAIL, 
+    DELETE_PRODUCT_SUCCESS, EDIT_PRODUCT, EDIT_PRODUCT_FAIL, EDIT_PRODUCT_SUCCESS, GET_ONE_PRODUCT, 
+    GET_ONE_PRODUCT_FAIL, GET_ONE_PRODUCT_SUCCESS, GET_PRODUCT, GET_PRODUCT_FAIL, GET_PRODUCT_SUCCESS } from '../actionType'
 
 export const getProducts = ()=> async(dispatch)=>{
 dispatch({type:GET_PRODUCT});
@@ -79,7 +81,7 @@ export const deleteProduct=(id)=>async(dispatch)=>{
     }
 }
 // Edit Product
-export const ProductEdit = (editP) => async(dispatch)=>{
+export const Edit_Product=(editP)=>async(dispatch)=>{
     dispatch({type: EDIT_PRODUCT})
     const token = localStorage.getItem("token");
     const config = {
@@ -89,6 +91,7 @@ export const ProductEdit = (editP) => async(dispatch)=>{
     }
     try {
         const res=await axios.put(`/product/editProduct/${editP._id}`,editP,config)
+        console.log("edit",res.data)
         dispatch({
             type:EDIT_PRODUCT_SUCCESS,
             payload:res.data

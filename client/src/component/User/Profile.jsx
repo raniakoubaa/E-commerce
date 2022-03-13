@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { Button, Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { userProfile } from '../../redux/action/action'
+import Header from '../Header/Header'
 const Profile = () => {
     const {user,loading}= useSelector(state=>state.userReducer)
     const dispatch=useDispatch()
@@ -11,8 +12,11 @@ const Profile = () => {
     }, [])
    
   return (
+    <div>
+       <Header/>
+   
     <div style={{marginTop:"100px",marginLeft:"50px"}}>
-    {loading? <Spinner animation="border" /> : 
+    {loading? <Spinner animation="border" className='spinner' /> : 
     <div>{ user&&<h1>{`Welcome ${user.fullName}`}</h1>}
     </div>
      }
@@ -20,9 +24,11 @@ const Profile = () => {
      <h3> Your profil : </h3>
      <br/>
      <p>Informations</p>
-     <p>History and details of your orders </p>
+     <Link to="/cart"><p>History and details of your orders (Cart)</p></Link>
      { user.userRole === "admin" ? 
-     (<Link to="/admin"><Button variant="success"> Go to Profil of admin </Button></Link>) : null}
+     (<Link to="/admin"><Button variant="success"> Go to Admin </Button></Link>) : (<Link to="/custumer" ><Button variant="success"> Go to Product </Button> </Link>)}
+     {/* <Navigate to="/admin"/>:<Navigate to="/custumer"/>} */}
+    </div>
     </div>
   )
 }

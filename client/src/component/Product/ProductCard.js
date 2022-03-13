@@ -4,6 +4,7 @@ import {ImEye} from 'react-icons/im'
 
 import "./product.css"
 import { Card } from 'react-bootstrap';
+import { FaCartPlus } from 'react-icons/fa';
   
 const ProductCard = ({product}) => {
   
@@ -16,7 +17,13 @@ const ProductCard = ({product}) => {
     <Card.Text>
       {product.price} TND
     </Card.Text>
-   <Link to={`/info/${product._id}`}> <ImEye size={35} style={{ fill: 'black' }} className="eyes"/></Link>
+   <div style={{display:"flex",marginLeft:"80px"}}>
+   <Link to={`/info/${product._id}`}> <ImEye size={30} style={{ fill: 'black',marginRight:"20px" }} className="eyes"/></Link>
+   {localStorage.getItem("token") ?
+    (<Link to="/cart"><FaCartPlus size={30} style={{ fill: 'black' }}/> </Link>)
+    : (<Link to="/login"><FaCartPlus size={30} style={{ fill: 'black' }}/> </Link>)
+  }
+   </div>
   </Card.Body>
 </Card>
   </div>

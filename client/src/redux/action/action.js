@@ -50,7 +50,7 @@ export const userLogin = (userL) => async (dispatch) => {
 export const userProfile = () => async (dispatch) => {
     dispatch({ type: GET_PROFILE });
     const token = localStorage.getItem("token");
-    console.log("token", token)
+    // console.log("token", token)
     const config = {
         headers: {
             Authorization: token,

@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../redux/action/actionProduct'
 import AdminProductCard from './AdminProductCard ';
 import './admin.css'
-import AddProduct from './AddProduct';
+
+import NavBarAdmin from './NavBarAdmin';
 
 const AdminListProduct = () => {
     const {products,loading}=useSelector(state=>state.productReducer)
@@ -12,16 +13,21 @@ const AdminListProduct = () => {
     useEffect(() => {
      dispatch(getProducts())
       }, [])
+    
   return (
+    <div>
+      <NavBarAdmin/>
+    
     <div className='admin'>
        <h2> Admin </h2>
-       <AddProduct/>
+       {/* <AddProduct/> */}
         {loading? <Spinner animation="border" /> : <div className='ListProduct'>
           {products.map((elt, i) => (
             <AdminProductCard product={elt} key={i} />
           ))}
         </div>
 }
+    </div>
     </div>
   )
 }

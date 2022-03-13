@@ -8,7 +8,7 @@ const persistConfig = {
     key: 'root',
     storage,
   }
-  const persistedReducer = persistReducer(persistConfig, rootReducer)
+  const persistedReducer = persistReducer(persistConfig, rootReducer,)
 const devtools=window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 const store=createStore(persistedReducer,compose(applyMiddleware(thunk),devtools));
 const persistor = persistStore(store)

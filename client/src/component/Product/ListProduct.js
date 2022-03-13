@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../../redux/action/actionProduct'
+import Header from '../Header/Header'
 
 import "./product.css"
 

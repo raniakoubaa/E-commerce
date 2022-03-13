@@ -1,44 +1,34 @@
 import React, { useState } from 'react'
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addProduct } from '../../redux/action/actionProduct';
+import NavBarAdmin from './NavBarAdmin';
 
 const AddProduct = () => {
-    const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     const [title, settitle] = useState("")
     const [imageUrl, setimageUrl] = useState("")
     const [price, setprice] = useState("")
     const [category, setcategory] = useState("")
     const [description, setdescription] = useState("")
-    const [quantity, setquantity] = useState("")
+    const [quantity, setquantity] = useState("0")
     const dispatch = useDispatch()
     const handlSubmit = (e) => {
         e.preventDefault()
-        const newProduct={title, imageUrl,category, price, description, quantity}
+        const newProduct={title, imageUrl,category, price, description,quantity}
         dispatch(addProduct(newProduct))
         settitle("")
         setimageUrl("")
         setprice("")
         setcategory("")
         setdescription("")
-        setquantity("")
-        handleClose()
     }
     return (
         <div>
-            <Button variant="primary" onClick={handleShow}>
-                Add
-            </Button>
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header>
-                    <Modal.Title>Add new product</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={handlSubmit}>
+           <NavBarAdmin/>
+    
+                    <Form onSubmit={handlSubmit}  className='Addproduct'>
                         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                             <Form.Label column sm={2}>
                                 Title :
@@ -68,20 +58,18 @@ const AddProduct = () => {
                                 Description :
                             </Form.Label>
                             <Col sm={8}>
-                                <Form.Control type="text" placeholder="Description" value={description} onChange={(e) => setdescription(e.target.value)} />
+                                <Form.Control  as="textarea" rows={3} placeholder="Description" value={description} onChange={(e) => setdescription(e.target.value)} />
                             </Col>
                         </Form.Group>
 
-                        <Form.Group as={Row} className="mb-3">
+                        {/* <Form.Group as={Row} className="mb-3">
                             <Form.Label> Quantity</Form.Label>
                             <Col sm={8}>
                                 <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={(e) => setquantity(e.target.value)} />
                             </Col>
-                        </Form.Group>
-                        {/* <label>category</label>
-                        <input type="text" value={category} onChange={(e)=>setcategory(e.target.value)}/> */}
+                        </Form.Group> */}
                         <Form.Group as={Col} controlId="formGridState">
-                            <Form.Label>category :  </Form.Label>
+                            <Form.Label style={{marginRight:"120px"}}>Category </Form.Label>
                             <Form.Select value={category} onChange={(e)=>setcategory(e.target.value)}>
                                 <option>Choose...</option>
                                 <option value="iphone">Iphone</option>
@@ -91,12 +79,10 @@ const AddProduct = () => {
                         <Button type="submit">
                             Save
                         </Button>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
+                        
                     </Form>
-                </Modal.Body>
-            </Modal>
+                {/* </Modal.Body>
+            </Modal> */}
         </div >
     )
 }
