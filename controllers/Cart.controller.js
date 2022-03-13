@@ -12,16 +12,17 @@ module.exports.getCartItems = async (req, res) => {
     }
 }
 module.exports.addCartItems = async (req, res) => {
-    const userId = req.params.id;
-    const { productId, quantity } = req.body;
+    // const productId = req.params.id;
+    const { userId, quantity,productId } = req.body;
     try {
         const cart = await Cart.findOne({ userId });
         const item = await Product.findOne({ _id: productId });
+        const name = item.name;
+        const price = item.price;
         if (!item) {
             res.status(400).send("Item not found");
         }
-        const name = item.name;
-        const price = item.price;
+    
         if (cart) {
             // if The cart doesn't exist for the User
             let itemIndex = cart.items.findIndex((p) => p.productId == productId);

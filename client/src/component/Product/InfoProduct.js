@@ -20,8 +20,9 @@ const InfoProduct = () => {
     console.log("id user", user._id, " productDetail", productDetail._id)
     const dispatch = useDispatch();
     const handlSubmit = (e) => {
+        const newcart={userId:user._id,productId,quantity}
         e.preventDefault()
-        dispatch(AddCart(user._id,productId,quantity))
+        dispatch(AddCart({userId:user._id,productId,quantity}))
         // alert("product is added")
     }
 
