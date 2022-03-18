@@ -10,14 +10,14 @@ const ProductCard = ({product}) => {
   
   return (
   <div className='CardProduct'>
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '16rem' }}>
   <Card.Img variant="top" src={product.imageUrl} />
   <Card.Body>
     <Card.Title>{product.title}</Card.Title>
     <Card.Text>
       {product.price} TND
     </Card.Text>
-   <div style={{display:"flex",marginLeft:"80px"}}>
+   <div style={{display:"flex",marginLeft:"20px"}}>
    <Link to={`/info/${product._id}`}> <ImEye size={30} style={{ fill: 'black',marginRight:"20px" }} className="eyes"/></Link>
    {localStorage.getItem("token") ?
     (<Link to="/cart"><FaCartPlus size={30} style={{ fill: 'black' }}/> </Link>)

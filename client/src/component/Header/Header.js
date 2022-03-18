@@ -16,11 +16,11 @@ const Header = () => {
     <div className='header'>
       <ul>
         <Link to="/"><li><img src={logo} alt="logo" className='logo' /></li></Link>
-        <li className='menu-item'>Mac</li>
+        <Link to="/mac"><li className='menu-item'>Mac</li></Link>
         <Link to="/iphone"><li className='menu-item'>IPHONE</li></Link>
         <Link to="/ipad"> <li className='menu-item'>IPAD</li></Link>
         <Link to="/"><li className='menu-item'>ALL</li></Link>
-        <li><FaCartPlus size={25} style={{ fill: 'black' }} /></li>
+        <Link to="/cart"> <li><FaCartPlus size={25} style={{ fill: 'black' }} /></li></Link>
         <li>
           {localStorage.getItem("token") ?
         <Link to="/profil"> 

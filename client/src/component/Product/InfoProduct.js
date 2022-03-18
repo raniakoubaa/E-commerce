@@ -17,13 +17,18 @@ const InfoProduct = () => {
     const { user } = useSelector(state => state.userReducer)
     const [quantity, setquantity] = useState(1)
     const productId=productDetail._id;
-    console.log("id user", user._id, " productDetail", productDetail._id)
+    // console.log("id user", user._id, " productDetail", productDetail._id)
     const dispatch = useDispatch();
     const handlSubmit = (e) => {
-        const newcart={userId:user._id,productId,quantity}
         e.preventDefault()
-        dispatch(AddCart({userId:user._id,productId,quantity}))
-        // alert("product is added")
+        if(productDetail.quantity > 0 ){
+        dispatch(AddCart(user._id,productId,quantity))
+        alert("product is added")
+        }
+        else{
+            alert("This product out of the stock")
+        }
+        
     }
 
     return (

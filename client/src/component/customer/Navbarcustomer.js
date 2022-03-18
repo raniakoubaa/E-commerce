@@ -14,7 +14,6 @@ const Navbarcustomer = () => {
     <ul>
       <Link to="/"><li><img src={logo} alt="logo" className='logo' /></li></Link>
       <Link to="/"><li className='menu-item'>PRODUCTS</li></Link>
-      <li className='menu-item'>CATEGORIE</li>
       <li>
         {localStorage.getItem("token") ?
 

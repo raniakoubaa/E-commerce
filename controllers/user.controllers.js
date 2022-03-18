@@ -78,3 +78,19 @@ exports.login=async(req,res)=>{
 exports.getUser=(req,res)=>{
     res.send(req.user)
 }
+exports.getAllUsers=async(req,res)=>{
+    try {
+      const users=await User.find();
+      res.send(users)
+    } catch (error) {
+      res.status(501).json({msg:error.message})
+    }
+      }
+exports.DeleteUser=async(req,res)=>{
+        try {
+          const user=await User.findByIdAndDelete(req.params.id);
+          res.send({ msg: `${user.fullName} was successfuly deleted` })
+        } catch (error) {
+          res.status(501).json({msg:error.message})
+        }
+          }

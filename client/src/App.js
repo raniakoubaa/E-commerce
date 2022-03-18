@@ -16,6 +16,10 @@ import ProductsCustomer from './component/customer/ProductsCustomer';
 import Iphone from './component/Product/Iphone';
 import Ipad from './component/Product/Ipad';
 import Cart from './component/customer/Cart';
+import ListUsers from './component/Admin/ListUsers';
+import Mac from './component/Product/Mac';
+import DetailUser from './component/User/DetailUser';
+import Paypal from './component/customer/Paypal';
 
 
 function App() {
@@ -30,12 +34,16 @@ function App() {
          <Route path="/product" element={<ListProduct/>}/>
          <Route path="/Iphone" element={<Iphone/>}/>
          <Route path="/ipad" element={<Ipad/>}/>
+         <Route path="/mac" element={<Mac/>}/>
          <Route path="/info/:id" element={<InfoProduct/>}/>
          <Route path="/admin" element={<AdminListProduct/>}/>
+         <Route path="/users" element={<ListUsers/>}/>
          <Route path="/edit/:id" element={<EditProduct/>}/>
          <Route path="/addProduct" element={<AddProduct/>}/>
          <Route path="/custumer" element={<ProductsCustomer/>}/>
          <Route path="/cart" element={<Cart/>}/>
+         <Route path="/oneuser/:id" element={<DetailUser/>}/>
+         <Route path="/paypal" element={< Paypal/>}/>
        </Routes>
      </Router>
     </div>

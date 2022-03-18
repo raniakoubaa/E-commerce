@@ -62,18 +62,21 @@ const AddProduct = () => {
                             </Col>
                         </Form.Group>
 
-                        {/* <Form.Group as={Row} className="mb-3">
+                        <Form.Group as={Row} className="mb-3">
                             <Form.Label> Quantity</Form.Label>
                             <Col sm={8}>
-                                <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={(e) => setquantity(e.target.value)} />
+                                <Form.Control type="number" placeholder="Quantity" value={quantity} 
+                                onChange={(e) => setquantity(e.target.value)} 
+                                style={{ width: "5em" }}/>
                             </Col>
-                        </Form.Group> */}
+                        </Form.Group>
                         <Form.Group as={Col} controlId="formGridState">
                             <Form.Label style={{marginRight:"120px"}}>Category </Form.Label>
                             <Form.Select value={category} onChange={(e)=>setcategory(e.target.value)}>
                                 <option>Choose...</option>
                                 <option value="iphone">Iphone</option>
                                 <option value="ipad">Ipad</option>
+                                <option value="Mac">Mac</option>
                             </Form.Select>
                         </Form.Group>
                         <Button type="submit">

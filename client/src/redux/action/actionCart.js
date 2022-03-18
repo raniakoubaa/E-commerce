@@ -25,7 +25,7 @@ export const GetCart = (userId)=> async(dispatch)=>{
      })
  }
 }
-export const AddCart = (userId,productId,quantity) => async(dispatch)=>{
+export const AddCart = (id,productId, quantity) => async(dispatch)=>{
 dispatch({
     type:ADD_CART
 })
@@ -36,8 +36,8 @@ const token = localStorage.getItem("token");
    },
 };
 try {
-  
-    const res=await axios.post("/cart/addCart",userId,productId,quantity,config)
+    const res=await axios.post(`/cart/addCart/${id}`,{productId, quantity},config)
+    console.log(res.data)
     dispatch({
         type:ADD_CART_SUCCESS,
         payload:res.data

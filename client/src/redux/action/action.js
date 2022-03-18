@@ -1,8 +1,14 @@
 import axios from "axios"
 import {
+    DELETE_USER,
+    DELETE_USER_FAIL,
+    DELETE_USER_SUCCESS,
     GET_PROFILE,
     GET_PROFILE_FAIL,
     GET_PROFILE_SUCCESS,
+    GET_USER,
+    GET_USER_FAIL,
+    GET_USER_SUCCESS,
     LOGIN, LOGIN_FAIL,
     LOGIN_SUCCESS,
     SIGN_UP,
@@ -50,7 +56,6 @@ export const userLogin = (userL) => async (dispatch) => {
 export const userProfile = () => async (dispatch) => {
     dispatch({ type: GET_PROFILE });
     const token = localStorage.getItem("token");
-    // console.log("token", token)
     const config = {
         headers: {
             Authorization: token,
@@ -58,7 +63,6 @@ export const userProfile = () => async (dispatch) => {
     };
     try {
         const res = await axios.get("/user/get", config);
-        // console.log(res.data)
         dispatch({
             type: GET_PROFILE_SUCCESS,
             payload: res.data
@@ -69,5 +73,49 @@ export const userProfile = () => async (dispatch) => {
             payload: error.response.data
         })
 
+    }
+}
+export const getUsers = () => async(dispatch) => {
+    dispatch({type:GET_USER});
+    const token = localStorage.getItem("token");
+    const config = {
+        headers: {
+            Authorization: token,
+        },
+    };
+    try {
+        const res=await axios.get("user/users",config)
+        dispatch({
+            type:GET_USER_SUCCESS,
+            payload:res.data
+        })
+    } catch (error) {
+        dispatch({
+            type:GET_USER_FAIL,
+            payload:error.response.data
+        })
+    }
+}
+export const DeleteUser = (id) => async(dispatch) =>{
+    dispatch({
+        type:DELETE_USER
+    })
+    const token = localStorage.getItem("token");
+    const config = {
+        headers: {
+            Authorization: token,
+        },
+    };
+    try {
+        const res=await axios.delete(`/user/deleteUser/${id}`,config)
+        dispatch({
+            type:DELETE_USER_SUCCESS,
+            payload:res.data
+        })
+    } catch (error) {
+       dispatch({
+           type:DELETE_USER_FAIL,
+           payload:error.response.data
+       }) 
     }
 }

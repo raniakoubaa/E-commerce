@@ -19,7 +19,10 @@ export const cartReducer = (state = initial, { type, payload }) => {
         case GET_CART_SUCCESS:
             return { ...state, loading: false, error: null, cart: payload ,isAuth:true}
         case ADD_CART_SUCCESS:
-            return { ...state, loading: false, error: null, cart: [...state.cart, payload] }
+            return { ...state, loading: false, error: null,  ...state,
+                // cart: payload 
+                cart: [...state.cart, payload] 
+            }
         case DELETE_CART_SUCCESS:
             return {
                 ...state, loading: false, error: null,

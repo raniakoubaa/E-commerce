@@ -23,7 +23,7 @@ const Profile = () => {
      <br/>
      <h3> Your profil : </h3>
      <br/>
-     <p>Informations</p>
+     <Link to={`/oneuser/${user._id}`}><p>Informations</p></Link>
      <Link to="/cart"><p>History and details of your orders (Cart)</p></Link>
      { user.userRole === "admin" ? 
      (<Link to="/admin"><Button variant="success"> Go to Admin </Button></Link>) : (<Link to="/custumer" ><Button variant="success"> Go to Product </Button> </Link>)}

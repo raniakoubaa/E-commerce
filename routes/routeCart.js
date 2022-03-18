@@ -6,6 +6,6 @@ const auth = require("../middleware/auth");
 router.get('/getCart/:id', auth, getCartItems);
 
 // add items to the user's cart
-router.post('/addCart', auth, addCartItems );
+router.post('/addCart/:id', auth, addCartItems );
 router.delete('/deleteCart/:userId/:itemId',auth,deleteCart);
 module.exports=router;
